@@ -10,17 +10,6 @@
   
   → 1,2를 통한 네트워크의 크기를 효율적으로 키우는 방법 탐색
 
-> **fatorized convolution(separable convolution)이란?**
-> 
-> Separable Convolution 에서는 커널 작업을 여러 단계로 나눌 수 있다.  
-> 컨볼루션을 y = conv(x, k)로 표현할 때, x는 입력 이미지, y 는 출력 이미지, k는 커널이다.  
-> 그리고 k=k1.dot(k2) 로 계산된다고 가정해 볼 때, 이것은 K와 2D Convolution 을 수행하는 대신 k1 과 k2로 1D Convolution 하는 것과 동일한 결과를 가져오기 때문에 Separable Convolution 이라고 할 수 있다.
->
-> <img src="https://user-images.githubusercontent.com/57162812/152090240-73e75e30-e6cd-4f7d-b130-0ccb3f3a876f.png" width=400>
->
-> 출처: https://eehoeskrap.tistory.com/431
-
-
 ## 일반적인 설계 원칙
 
 언급되는 원칙들은 추측성으로 정확성이나 검증에 대해서는 실험적인 증거가 필요하지만 이 원칙들을 벗어나기만 해도 네트워크의 성능이 떨어졌으며, 해당 벗어난 부분을 고치기만 하면 아키텍처가 일반적으로 개선되는 경향을 보였다.
