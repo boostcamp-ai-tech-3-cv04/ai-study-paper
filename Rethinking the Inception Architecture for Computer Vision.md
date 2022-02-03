@@ -213,3 +213,9 @@ Inception-v3=Inception-v2+RMSProp+Lable Smoothing+ Factorized 7x7+BN-auxiliary
 
 #### Multi-model, Multi-crop 실험 결과
 <img src="https://user-images.githubusercontent.com/57162812/152138072-62e118cf-0a71-4626-935c-c35bc76deda2.png" width=400>
+
+## Conclusion
+
+이 논문에서는 네트워크 내부에서의 factorizing convolution 기법과 적극적인 dimension reduction으로, 어떻게 높은 성능을 유지하면서도, 비교적 낮은 계산 비용이 드는 네트워크를 만들 수 있는지에 대해 알아봤다.
+
+적은 수의 parameter와 BN이 사용 된 보조 분류기, label-smoothing 기법이 함께 사용되면, 크지 않은 규모의 학습 데이터 상에서도, 고성능의 네트워크를 학습 할 수 있다.
