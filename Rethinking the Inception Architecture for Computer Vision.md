@@ -186,7 +186,7 @@ new_label=1\*(1-0.2)+0.2/2=0.9
 
 > Receprive field의 resolution이 커진다는 것은 convolution filter와 input 간의 weight sum의 계산에 사용되는 pixel의 수가 많아진다는 것이다. Resolution이 커질수록 더 넓은 범위의 인근 pixel들을 고려하여 패턴을 학습할 수 있게 된다.
 >
-> 모델의 capacitance가 크다는 것은 많은 parameter를 가지는 것이며, 그만큼 더 복잡한 관계에 대해 패턴을 학습할 수 있는 여지가 생긴다. 예를 들어, 3-layer를 가지는 CNN으로 MNIST dataset에 대한 학습을 진행하면 우수한 성능을 얻을 수 있지만, ImageNet dataset에 대한 학습을 진행하면 좋지 못한 성능을 얻게 되는 것과 유사한 이치이다.
+> 모델의 capacitance가 크다는 것은 많은 parameter를 가지는 것이며, 그만큼 더 복잡한 관계에 대해 패턴을 학습할 수 있는 여지가 생긴다.
 
 만약 모델을 수정하지 않고 input resolution만 변경한다면, 계산 비용이 훨씬 저렴한 모델로, 보다 어려운 작업에 대한 학습을 하게 된다. 이 경우, 계산량이 줄어드는만큼 솔루션의 견고함도 떨어지게 된다.
 
