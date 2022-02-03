@@ -71,7 +71,8 @@ GoogLeNet은 1x1 convolution로 차원을 축소시키고 3x3 convolution을 여
 
 여기선 vision network를 구축하고 있기 때문에, fully-connected component를 2-layer convolution로 대체하여 translation invariance을 다시 이용하는 것이 자연스러워 보인다.
 
-> Translation invariance는 입력에 shift가 일어난 경우에도 변함 없이 학습한 패턴을 캡처하는 convolution 방식의 특성을 말하는 것이다. 
+> Translation invariance는 입력에 shift가 일어난(위치가 바뀐) 경우에도 변함 없이 학습한 패턴을 캡처하는 convolution 방식의 특성을 말하는 것이다.   
+> <img src="https://user-images.githubusercontent.com/57162812/152280938-0730fd01-168e-455d-8985-ae155c713dd4.png" width=400>
 
 즉, 위 그림처럼 5x5 convolution은 3x3 convolution 2개로 분해할 수 있다. 5x5 convolution은 25번의 연산을 하고, 3x3 convolution 2번은 각각 9번의 연산을 수행한다. 따라서 연산량을 18/25배가 된다. 파라미터 수 또한 18/25배가 된다. 28%의 이득을 얻을 수 있다.
 
