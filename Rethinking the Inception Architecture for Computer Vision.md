@@ -30,7 +30,7 @@ Input에서 Output까지의 모든 layer의 경우, 각 layer를 통과하는 �
 
 ### 2. **고차원 Representation은 네트워크 내에서 지역적으로 처리하기 쉽다.**  
 
-CNN에서 activation per tile을 증가시키면 얽히고 섥힌 특징들을 많이 얻을 수 있어 네트워크가 더 빠르게 학습하게 된다. 
+CNN에서 activation per tile을 증가시키면 disentangle feature들을 많이 얻을 수 있어 네트워크가 더 빠르게 학습하게 된다. 
   
 ### 3. spatial aggregation은 representational power를 그렇게 많이 잃지 않으면서도 저차원 임베딩에 적용될 수 있다.  
 
