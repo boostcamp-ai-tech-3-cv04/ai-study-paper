@@ -181,7 +181,7 @@ new_label=1\*(1-0.2)+0.2/2=0.9
 일반적으로, higher resolution의 receptive field를 사용하는 모델이, recognition 성능이 크게 향상되는 경향이 있다고 알려져 있다.
 
 > CNN에서 Receptive field는 각 단계의 입력 이미지에 대해 하나의 필터가 커버할 수 있는 이미지 영역의 일부를 뜻한다.
-d
+
 **layer의 receptive field의 resolution이 증가했을 때의 효과와, model이 커짐에 따른 capacitance 및 computation에 대한 효과를 구별하는 것이 중요하다.**
 
 > Receprive field의 resolution이 커진다는 것은 convolution filter와 input 간의 weight sum의 계산에 사용되는 pixel의 수가 많아진다는 것이다. Resolution이 커질수록 더 넓은 범위의 인근 pixel들을 고려하여 패턴을 학습할 수 있게 된다.
@@ -204,12 +204,12 @@ lower-resolution 네트워크가 학습하는 데 오래 걸리긴 하지만, �
 
 ## Experimental Result and Comparision
 #### 다양한 기법들에 대한 누적 효과를 비교하는 single-crop 성능
-![image](https://user-images.githubusercontent.com/57162812/152137928-cedda2fc-c342-4b80-ad6f-5f40a8f0e39d.png)
+<img src="https://user-images.githubusercontent.com/57162812/152137928-cedda2fc-c342-4b80-ad6f-5f40a8f0e39d.png" width=400>
 
 #### Single-model, Multi-crop 실험 결과
-![image](https://user-images.githubusercontent.com/57162812/152138010-9ab1c541-48db-4ba1-90f8-50ca71995b09.png)
+<img src="https://user-images.githubusercontent.com/57162812/152138010-9ab1c541-48db-4ba1-90f8-50ca71995b09.png" width=400>
 
 Inception-v3=Inception-v2+RMSProp+Lable Smoothing+ Factorized 7x7+BN-auxiliary
 
 #### Multi-model, Multi-crop 실험 결과
-![image](https://user-images.githubusercontent.com/57162812/152138072-62e118cf-0a71-4626-935c-c35bc76deda2.png)
+<img src="https://user-images.githubusercontent.com/57162812/152138072-62e118cf-0a71-4626-935c-c35bc76deda2.png" width=400>
