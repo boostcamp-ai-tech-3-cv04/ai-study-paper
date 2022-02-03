@@ -31,7 +31,9 @@ Input에서 Output까지의 모든 layer의 경우, 각 layer를 통과하는 �
 ### 2. **고차원 Representation은 네트워크 내에서 지역적으로 처리하기 쉽다.**  
 
 CNN에서 activation per tile을 증가시키면 disentangle feature들을 많이 얻을 수 있어 네트워크가 더 빠르게 학습하게 된다. 
-  
+
+> Convolution layer의 filter map 개수를 늘리면, 다양한 경우의 activated feature map을 탐지할 수 있고, 이를 통해 네트워크의 학습이 빨라질 수 있다는 뜻으로 보인다.
+
 ### 3. spatial aggregation은 representational power를 그렇게 많이 잃지 않으면서도 저차원 임베딩에 적용될 수 있다.  
 
 더 많은 Convolution을 수행하기 전에, 심각한 부작용 없이 input representation의 차원축소가 가능하므로, 그 후에 spatial aggregation을 할 수 있다. 또한 이러한 signal은 쉽게 압축할 수 있다는 점을 생각하면 차원축소로 인해 학습 속도가 빨라질 것이다.
