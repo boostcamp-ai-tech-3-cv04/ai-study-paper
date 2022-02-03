@@ -135,7 +135,7 @@ CNN은 pooling 연산을 통해서 feature map의 grid size를 줄인다. 이 �
 
 [Fig9 오른쪽] 네트워크 전체 계산 비용이 pooling 이전의 확장 단계에서 일어나는 2d^2k에 좌우한다는 것을 의미한다. 따라서 비용이 비싸진다.
 
-[Fig9 왼쪽]만약 convolution과 pooling의 순서를 바꾼다면, 계산 비용이 1/4로 줄어 2(d/2)^2k가 된다. 하지만 이는 representation의 전반적인 차원이 (d/2)^2xk로 낮아져서 표현령ㄱ이 떠러지게 되고, 이는 곧 representational bottlenek을 야기한다.
+[Fig9 왼쪽]만약 convolution과 pooling의 순서를 바꾼다면, 계산 비용이 1/4로 줄어 2(d/2)^2k가 된다. 하지만 이는 representation의 전반적인 차원이 (d/2)^2xk로 낮아져서 표현력이 떨어지게 되고, 이는 곧 representational bottlenek을 야기한다.
 
 ➡ representational bottleneck을 피하면서 계산 비용도 줄일 수 있는 구조 제안
 : stride가 2인 block2개를 병렬로 사용
