@@ -66,7 +66,7 @@ hardware 메모리 한계에 도달했기 때문에, 더 좋은 accuracy향상�
 
 (F는 operator, X는 input, N은 ConvNet)
 
-![image-20220131214754153](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131214754153.png)
+![image](https://user-images.githubusercontent.com/71866756/153136761-bef25175-7066-417c-94d4-2a2cc712aef6.png)
 
 어차피 같은 block안에서 layer는 반복되는 것이 대부분이므로
 
@@ -74,7 +74,7 @@ hardware 메모리 한계에 도달했기 때문에, 더 좋은 accuracy향상�
 
 아래 식으로 표현 가능하다.  
 
-![image-20220131214640895](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131214640895.png)
+![image](https://user-images.githubusercontent.com/71866756/153136776-4dc46ff5-d8b2-4a9b-9ab2-acd210441baa.png)
 
 (L은 i번째 stage에서 Fi가 Li번 반복된다는 의미)
 
@@ -82,7 +82,7 @@ hardware 메모리 한계에 도달했기 때문에, 더 좋은 accuracy향상�
 
 (scale up의 목적은 Acc의 향상과 효율이므로 아래 식으로 표현 가능, r, w, d는 각각의 constant ratio)
 
-![image-20220131215523692](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131215523692.png)
+![image](https://user-images.githubusercontent.com/71866756/153136790-44b4ea0f-0aca-425f-b204-606fa0e1e0d0.png)
 
 ### 3-2. 각각의 dimension scale up의 효과
 
@@ -121,7 +121,7 @@ hardware 메모리 한계에 도달했기 때문에, 더 좋은 accuracy향상�
 
 ### 3-3. Compound scaling (3dimesion 변화)
 
-![image-20220131223404973](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131223404973.png)
+![image](https://user-images.githubusercontent.com/71866756/153136826-2a214550-0597-4ed7-b27d-85491f80bde5.png)
 
 위 사진은 w (width)를 증가시켰을 때, d와 r의 값에 따른 정확도를 표현한 그래프이다. 
 
@@ -131,20 +131,15 @@ hardware 메모리 한계에 도달했기 때문에, 더 좋은 accuracy향상�
 
 아래 사진은 논문에서 발표한 수식이다. 
 
-![image-20220131223827810](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131223827810.png)
+![image](https://user-images.githubusercontent.com/71866756/153136855-936251cc-9ff4-4f81-bfc6-cbf649c8401e.png)
 
 alpha, beta, gamma는 small grid search로 결정할 수 있는 상수이다. 
 
-파이는 사용자가 지정하는 coefficient로 컴퓨터 자원을 얼마나 더 사용할 수 있는지를 나타낸다. 
-$$
-\alpha*\beta^2 * \gamma^2의 \;의미는\; \\
-depth를 \;k배\; 늘렸을 \;때\; FLOPS도 \;K배\; 늘어나지만, \\
-width와 \;resolution은 \;k^2배로 \;늘어나는 \;것을\; 의미한다.
-$$
-마지막 수식에 phi제곱을 취하면 아래 식이 나온다. 
-$$
-(\alpha*\beta^2 * \gamma^2)^\phi\approx 2^\phi
-$$
+파이는 사용자가 지정하는 coefficient로 컴퓨터 자원을 얼마나 더 사용할 수 있는지를 나타낸다.   
+![image](https://user-images.githubusercontent.com/71866756/153136912-78067e05-b03b-486e-9db0-c0a229f27dd4.png)  
+ 
+마지막 수식에 phi제곱을 취하면 아래 식이 나온다.   
+![image](https://user-images.githubusercontent.com/71866756/153136956-63815287-9279-4df5-a4d8-5199f6a2f90d.png)  
 만약 FLOPS를 2^phi만큼 더 사용할 수 있다면, 위 수식으로 alpha, beta, gamma를 구하게 된다. 
 
 ![image-20220209152711426](../AppData/Roaming/Typora/typora-user-images/image-20220209152711426.png)
@@ -161,7 +156,7 @@ $$
 
 ![image-20220209152621083](../AppData/Roaming/Typora/typora-user-images/image-20220209152621083.png)
 
-![image-20220131231805272](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131231805272.png)
+![image](https://user-images.githubusercontent.com/71866756/153136995-baecf91e-4a2d-46e1-b301-6b53b8945fc9.png)
 
 > 여기서 SE가 이해가 안됏는데, squeeze and excitation이라고 SENet을 보면 된다. 
 >
@@ -171,17 +166,11 @@ $$
 >
 > 그리고 원래 입력에다가 이 값들을 곱해주면 (위 그림에서 MUL부분)각 채널의 중요도를 가지고 있는 새로운 input이 되어 다음 layer로 들어간다. 
 >
-> SEblock이 아래 그림임![image-20220131233008867](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131233008867.png)
+> SEblock이 아래 그림임![image](https://user-images.githubusercontent.com/71866756/153137020-5cd1f1fc-5403-4138-a745-506f436ba191.png)
 
 모델을 scale up하는 최종 목적은 아래 식을 optimize하는 것이라고 할 수 있다. 
 
-![image-20220131224312952](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131224312952.png)
-
-$$
-ACC(m) : 모델의\; 정확도\\
-T : 목적하는\; FLOPS\\
-w : ACC와\; FLOPS의\; trade\; off를\; control하는\; hyperparameter
-$$
+![image](https://user-images.githubusercontent.com/71866756/153137056-ed86bb4e-cf94-4e18-8bbb-86a882c180d9.png)  
 **`Flops`** 란 floating point operations per second로 컴퓨터의 성능을 수치로 나타낼  때 주로 사용되는 단위이다. 
 
 초당 부동소수점 연산이라는 의미로 컴퓨터가 1초동안 수행할 수 있는 부동소수점 연산의 횟수를 기준으로 삼는다. 
@@ -194,12 +183,8 @@ $$
 >
 > 간단하게 설명하자면, 원래 저 논문에서는 FLOPS로 안하고 Latency로 계산을 진행했다. 
 >
-> 실험적으로, latency가 2배 증가했을 때, 정확도가 5% 증가했다고 한다. 
-> $$
-> M1 : latency = l,\; acc= a\\
-> M2 :latency = 2l,\; acc=a(1+0.05)\\
-> Reward(M1)=a(l/T)^w\approx a(1+0.05)(2l/T)^w=Reward(M2)
-> $$
+> 실험적으로, latency가 2배 증가했을 때, 정확도가 5% 증가했다고 한다.   
+> ![image](https://user-images.githubusercontent.com/71866756/153137100-87fe7ee4-1701-4764-8738-a74553cceadb.png)  
 > 위 수식을 풀면 w는 -0.07이 나온다. 
 >
 > latency보다 FLOPS를 사용하는 이유는 특정 device를 target으로 하는 것이 아니기 때문이다. (latency란 모델이 한 번 돌아가는데 걸리는 지연시간)
@@ -208,31 +193,29 @@ $$
 
 # 5. 결과
 
-### 5-1. 다양한 EfficientNet 실험 (phi를 변경하며 실험)
+### 5-1. 다양한 EfficientNet 실험 (phi를 변경하며 실험)  
 
-$$
-\alpha=1.2,\;\;\beta=1.1\;\;\gamma=1.15로\; 고정하고 \;\phi만\; 변경
-$$
+![image](https://user-images.githubusercontent.com/71866756/153137180-3deb9fff-2497-4554-bf25-61bb0f81a51e.png)  
 
-![image-20220131224900038](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131224900038.png)
+![image](https://user-images.githubusercontent.com/71866756/153137146-ea22d646-6a22-4e71-9423-02ef926cf43d.png)
 
 
 
 ### 5-2. MobileNets과 ResNet에서의 실험
 
-![image-20220131224921321](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131224921321.png)
+![image](https://user-images.githubusercontent.com/71866756/153137218-024ccd58-5d53-44c2-870a-862bbaa2234e.png)
 
 ### 5-3. FLOPS per Accuracy
 
-![image-20220131224929075](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131224929075.png)
+![image](https://user-images.githubusercontent.com/71866756/153137237-81f49eb9-5dee-4b72-acb1-22dbecbf4d6b.png)
 
 ### 5-4. For Transfer Learning
 
-![image-20220131224940173](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131224940173.png)
+![image](https://user-images.githubusercontent.com/71866756/153137245-10ca5195-a56f-48c4-b13d-eb6ec0b4f0b8.png)
 
 ### 5-5. Multi dimension scale up
 
-![image-20220131225006902](C:\Users\Administrator1\AppData\Roaming\Typora\typora-user-images\image-20220131225006902.png)
+![image](https://user-images.githubusercontent.com/71866756/153137256-48aa7a0f-4673-42b2-8f7a-c21b2fa15874.png)
 
 
 
